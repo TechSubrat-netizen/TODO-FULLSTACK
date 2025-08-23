@@ -3,12 +3,13 @@ import dotenv from 'dotenv';
 import connectDb from './config/db.js';
 import todoRoute from './Routes/todoRoute.js';
 import cors from'cors'
-app.use(cors())
+
 dotenv.config()
 
 const app=express();
 
 //l middlewares
+app.use(cors())
 app.use(express.json())
 app.use('/todo',todoRoute)
 

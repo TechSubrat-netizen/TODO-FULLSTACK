@@ -10,7 +10,18 @@ import todoModel from "../Model/todoModel.js";
      res.status(500).send({msg:"There si something wromng in your server"})
   }
 }
-
+// Get individual task by id
+export  const getTaskById= async(req,res)=>{
+    try {
+           let id=req.params.id;
+    let task= await todoModel.findOne({_id:id});
+    res.status(200).send(task)
+        
+    } catch (error) {
+         res.status(500).send({msg:'Something went wrong'})
+    }
+ 
+}
 //add Data
 export const addTask = async (req,res) => {
     try {
